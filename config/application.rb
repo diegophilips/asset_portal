@@ -24,7 +24,9 @@ module AssetPortal
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.neo4j.driver.url = 'bolt://localhost:7687'
+    config.neo4j.session.type = :bolt
+    config.neo4j.session_path = 'bolt://localhost:7687'
+    config.neo4j.session_options = { basic_auth: { username: 'Graph DBMS', password: '123456'} }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
